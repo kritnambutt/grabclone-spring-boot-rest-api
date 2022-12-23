@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/shopfood")
+@RequestMapping("/api/shop_food")
 public class ShopFoodController {
     private ShopFoodRepository shopFoodRepository;
 
