@@ -46,6 +46,9 @@ public class ShopFood {
     @Column(nullable = false)
     private String verifyStatus;
 
+    @Column(nullable = true)
+    private String[] promotions;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_dt")
     private Date createdDt;
@@ -58,7 +61,7 @@ public class ShopFood {
 
     }
 
-    public ShopFood(Long id, String name, String profileImg, String coverImg, String[] categoryTags, double rating, double locLat, double locLong, String locDetail, String[] operationHours, String tel, String verifyStatus) {
+    public ShopFood(Long id, String name, String profileImg, String coverImg, String[] categoryTags, double rating, double locLat, double locLong, String locDetail, String[] operationHours, String tel, String verifyStatus, String[] promotions) {
         this.id = id;
         this.name = name;
         this.profileImg = profileImg;
@@ -71,11 +74,12 @@ public class ShopFood {
         this.operationHours = operationHours;
         this.tel = tel;
         this.verifyStatus = verifyStatus;
+        this.promotions = promotions;
         this.createdDt = new Date();
         this.updatedDt = new Date();
     }
 
-    public ShopFood(String name, String profileImg, String coverImg, String[] categoryTags, double rating, double locLat, double locLong, String locDetail, String[] operationHours, String tel, String verifyStatus) {
+    public ShopFood(String name, String profileImg, String coverImg, String[] categoryTags, double rating, double locLat, double locLong, String locDetail, String[] operationHours, String tel, String verifyStatus, String[] promotions) {
         this.name = name;
         this.profileImg = profileImg;
         this.coverImg = coverImg;
@@ -87,6 +91,7 @@ public class ShopFood {
         this.operationHours = operationHours;
         this.tel = tel;
         this.verifyStatus = verifyStatus;
+        this.promotions = promotions;
         this.createdDt = new Date();
         this.updatedDt = new Date();
     }
@@ -190,6 +195,14 @@ public class ShopFood {
 
     public void setVerifyStatus(String verifyStatus) {
         this.verifyStatus = verifyStatus;
+    }
+
+    public String[] getPromotions() {
+        return promotions;
+    }
+
+    public void setPromotions(String[] promotions) {
+        this.promotions = promotions;
     }
 
     public Date getCreatedDt() {

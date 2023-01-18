@@ -20,9 +20,15 @@ public class ShopFoodController {
     @Autowired
     private ShopFoodService shopFoodService;
 
-    @GetMapping
-    public APIResponse<List<ShopFood>> getShopFoods() {
+    @GetMapping("/last-order-food")
+    public List<ShopFood> getLastOrderFood() {
         List<ShopFood> allShopFoods = shopFoodService.findAllShopFoods();
-        return new APIResponse<>(allShopFoods.size(), allShopFoods);
+        return allShopFoods;
+    }
+
+    @GetMapping("/foodshop-may-like")
+    public List<ShopFood> getFoodShopMayLike() {
+        List<ShopFood> allShopFoods = shopFoodService.findAllShopFoods();
+        return allShopFoods;
     }
 }
