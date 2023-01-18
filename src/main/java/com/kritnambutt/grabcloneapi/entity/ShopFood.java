@@ -1,5 +1,7 @@
 package com.kritnambutt.grabcloneapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kritnambutt.grabcloneapi.model.JsonOperationHours;
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -11,7 +13,7 @@ import java.util.*;
 @Table(name = "shop_food")
 public class ShopFood {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "shop_id")
     private Long id;
 
@@ -56,6 +58,11 @@ public class ShopFood {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_dt")
     private Date updatedDt;
+
+    @JsonIgnore
+    @JsonBackReference
+    @OneToMany(mappedBy = "shop")
+    private List<FoodMenu> foodMenus;
 
     public ShopFood() {
 
@@ -219,5 +226,13 @@ public class ShopFood {
 
     public void setUpdatedDt(Date updatedDt) {
         this.updatedDt = updatedDt;
+    }
+
+    public List<FoodMenu> getFoodMenus() {
+        return foodMenus;
+    }
+
+    public void setFoodMenus(List<FoodMenu> foodMenus) {
+        this.foodMenus = foodMenus;
     }
 }

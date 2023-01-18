@@ -31,4 +31,10 @@ public class ShopFoodController {
         List<ShopFood> allShopFoods = shopFoodService.findAllShopFoods();
         return allShopFoods;
     }
+
+    @GetMapping("/food-order-morning")
+    public List<ShopFood> getFoodOrderMorning() {
+        List<ShopFood> allShopFoods = shopFoodService.findAllShopFoods();
+        return allShopFoods;
+    }
 }
