@@ -13,7 +13,7 @@ import java.util.*;
 @Table(name = "shop_food")
 public class ShopFood {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "shop_id")
     private Long id;
 
